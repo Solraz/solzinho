@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Little_yStump</title>
+    {% endif %}
+
+    <link rel="icon" href="./assets/media/img/solzinho.png" type="image/png" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <main>{% block content %} {% endblock content %}</main>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
