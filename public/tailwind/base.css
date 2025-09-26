@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  --color-text-50: hsl(0, 0%, 95%);
+  --color-text-100: hsl(0, 0%, 90%);
+  --color-text-200: hsl(0, 0%, 80%);
+  --color-text-300: hsl(0, 0%, 70%);
+  --color-text-400: hsl(0, 0%, 60%);
+  --color-text-500: hsl(0, 0%, 50%);
+  --color-text-600: hsl(0, 0%, 40%);
+  --color-text-700: hsl(0, 0%, 30%);
+  --color-text-800: hsl(0, 0%, 20%);
+  --color-text-900: hsl(0, 0%, 10%);
+  --color-text-950: hsl(0, 0%, 5%);
+
+  --color-background-50: hsl(0, 0%, 95%);
+  --color-background-100: hsl(0, 0%, 90%);
+  --color-background-200: hsl(0, 0%, 80%);
+  --color-background-300: hsl(0, 0%, 70%);
+  --color-background-400: hsl(0, 0%, 60%);
+  --color-background-500: hsl(0, 0%, 50%);
+  --color-background-600: hsl(0, 0%, 40%);
+  --color-background-700: hsl(0, 0%, 30%);
+  --color-background-800: hsl(0, 0%, 20%);
+  --color-background-900: hsl(0, 0%, 10%);
+  --color-background-950: hsl(0, 0%, 5%);
+
+  --color-primary-50: hsl(282, 68%, 95%);
+  --color-primary-100: hsl(283, 69%, 90%);
+  --color-primary-200: hsl(283, 69%, 80%);
+  --color-primary-300: hsl(283, 69%, 70%);
+  --color-primary-400: hsl(283, 68%, 60%);
+  --color-primary-500: hsl(283, 68%, 50%);
+  --color-primary-600: hsl(283, 68%, 40%);
+  --color-primary-700: hsl(283, 69%, 30%);
+  --color-primary-800: hsl(283, 69%, 20%);
+  --color-primary-900: hsl(283, 69%, 10%);
+  --color-primary-950: hsl(286, 68%, 5%);
+
+  --color-secondary-50: hsl(318, 77%, 95%);
+  --color-secondary-100: hsl(318, 76%, 90%);
+  --color-secondary-200: hsl(319, 78%, 80%);
+  --color-secondary-300: hsl(319, 78%, 70%);
+  --color-secondary-400: hsl(319, 78%, 60%);
+  --color-secondary-500: hsl(319, 78%, 50%);
+  --color-secondary-600: hsl(319, 78%, 40%);
+  --color-secondary-700: hsl(319, 78%, 30%);
+  --color-secondary-800: hsl(319, 78%, 20%);
+  --color-secondary-900: hsl(318, 76%, 10%);
+  --color-secondary-950: hsl(321, 77%, 5%);
+
+  --color-accent-50: hsl(327, 85%, 95%);
+  --color-accent-100: hsl(328, 88%, 90%);
+  --color-accent-200: hsl(328, 86%, 80%);
+  --color-accent-300: hsl(328, 87%, 70%);
+  --color-accent-400: hsl(328, 87%, 60%);
+  --color-accent-500: hsl(328, 87%, 50%);
+  --color-accent-600: hsl(328, 87%, 40%);
+  --color-accent-700: hsl(328, 87%, 30%);
+  --color-accent-800: hsl(328, 86%, 20%);
+  --color-accent-900: hsl(328, 88%, 10%);
+  --color-accent-950: hsl(330, 85%, 5%);
+
+  --top-index: 5;
+}
+
+body {
+  @apply bg-background-900;
+}
+
+nav#main-nav {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+
+  width: 240px;
+  height: 100%;
+
+  position: fixed;
+  z-index: var(--top-index);
+
+  @apply pl-1 pt-1 pb-1;
+
+  .menu-content {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-flow: column;
+    flex-grow: 1;
+
+    gap: var(--text-base);
+
+    height: 100%;
+    max-width: 959px;
+
+    @apply shadow-xl shadow-primary-700/50;
+    @apply border-primary-500/90 border border-solid;
+    @apply py-3 px-3.5;
+    @apply rounded-lg;
+
+    ul {
+      display: flex;
+      flex-flow: column;
+      flex-grow: 1;
+
+      gap: 15px;
+
+      a {
+        color: white;
+        text-decoration: none;
+
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          @apply bg-primary-300;
+        }
+      }
+    }
+  }
+
+  .logo {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+    position: relative;
+    overflow: visible;
+
+    width: 100%;
+
+    .avatar {
+      position: relative;
+
+      height: 50px;
+      width: auto;
+      object-fit: cover;
+
+      z-index: 1;
+
+      @apply border-2 border-solid border-primary-500 rounded-full;
+    }
+
+    .decoration {
+      position: absolute;
+      top: -5px;
+      left: -8px;
+
+      z-index: 2;
+      height: 60px;
+
+      z-index: 2;
+    }
+
+    span {
+      display: flex;
+
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .search-bar input {
+    &::placeholder {
+      color: white;
+    }
+
+    &[value=""] {
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+base_url = "https://example.com"
+compile_sass = false
+
+title="Solzinho's Rest"
+description="I wanted to die a long time ago. Alas, I am still here and you will have to put with my shit."
+
+output_dir="public"
+
+ignored_content = []
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+
+taxonomies = []
+
+build_search_index = true
+generate_sitemap = true
+generate_robots_txt = true
+
+
+[markdown]
+highlight_code = true
+render_emoji = true
+lazy_async_image = false
+
+[extra]
+# Put all your custom variables here
