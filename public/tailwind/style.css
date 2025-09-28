@@ -7,15 +7,15 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
+    --color-white: #fff;
     --spacing: 0.25rem;
-    --text-base: 1rem;
     --radius-lg: 0.5rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-background-900: hsl(0, 0%, 10%);
-    --color-primary-300: hsl(283, 69%, 70%);
+    --color-primary-400: hsl(283, 68%, 60%);
     --color-primary-500: hsl(283, 68%, 50%);
-    --color-primary-700: hsl(283, 69%, 30%);
+    --color-primary-600: hsl(283, 68%, 40%);
     --top-index: 5;
   }
 }
@@ -168,32 +168,42 @@
 body {
   background-color: var(--color-background-900);
 }
+site-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: auto;
+  max-width: 1280px;
+  position: relative;
+  margin-inline: auto;
+}
 nav#main-nav {
   display: flex;
-  justify-content: start;
-  align-items: start;
-  width: 240px;
+  align-items: flex-start;
+  justify-content: flex-start;
   height: 100%;
+  width: calc(var(--spacing) * 60);
   position: fixed;
-  z-index: var(--top-index);
   padding-top: calc(var(--spacing) * 1);
   padding-bottom: calc(var(--spacing) * 1);
   padding-left: calc(var(--spacing) * 1);
+  z-index: var(--top-index);
   .menu-content {
     display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-flow: column;
     flex-grow: 1;
-    gap: var(--text-base);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: calc(var(--spacing) * 10);
     height: 100%;
-    max-width: 959px;
-    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    --tw-shadow-color: color-mix(in srgb, hsl(283, 69%, 30%) 50%, transparent);
+    --tw-shadow-color: color-mix(in srgb, hsl(283, 68%, 60%) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-primary-700) 50%, transparent) var(--tw-shadow-alpha), transparent);
+      --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-primary-400) 50%, transparent) var(--tw-shadow-alpha), transparent);
     }
+    border-radius: var(--radius-lg);
     border-style: var(--tw-border-style);
     border-width: 1px;
     --tw-border-style: solid;
@@ -202,51 +212,178 @@ nav#main-nav {
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-primary-500) 90%, transparent);
     }
-    padding-inline: calc(var(--spacing) * 3.5);
-    padding-block: calc(var(--spacing) * 3);
-    border-radius: var(--radius-lg);
+    padding-inline: calc(var(--spacing) * 5);
+    padding-block: calc(var(--spacing) * 4);
+    --tw-shadow: -10px 0px 50px 5px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    max-width: 360px;
     ul {
       display: flex;
-      flex-flow: column;
       flex-grow: 1;
-      gap: 15px;
-      a {
-        color: white;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-        &:hover {
-          background-color: var(--color-primary-300);
+      flex-direction: column;
+      gap: calc(var(--spacing) * 3.5);
+      width: 100%;
+      li {
+        position: relative;
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+        --tw-border-style: solid;
+        border-style: solid;
+        border-color: color-mix(in srgb, hsl(283, 68%, 50%) 90%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-primary-500) 90%, transparent);
         }
+        width: 100%;
+        padding-top: calc(var(--spacing) * 1.5);
+        padding-bottom: calc(var(--spacing) * 2.5);
+        padding-left: calc(var(--spacing) * 3);
+        &:hover {
+          cursor: pointer;
+          --tw-shadow-color: color-mix(in srgb, hsl(283, 68%, 40%) 50%, transparent);
+          @supports (color: color-mix(in lab, red, red)) {
+            --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-primary-600) 50%, transparent) var(--tw-shadow-alpha), transparent);
+          }
+          box-shadow: 0 0 15px 0px var(--tw-shadow-color) inset;
+        }
+        fancy-borders {
+          position: absolute;
+          top: calc(var(--spacing) * 0);
+          left: calc(var(--spacing) * 0);
+          display: flex;
+          height: 100%;
+          width: 100%;
+          & > div:nth-child(1) {
+            position: absolute;
+            top: calc(var(--spacing) * 0);
+            left: calc(var(--spacing) * 0);
+            display: flex;
+            height: 100%;
+            width: 100%;
+            &::before {
+              position: absolute;
+              bottom: calc(var(--spacing) * -1);
+              left: calc(var(--spacing) * -2);
+              rotate: calc(135deg * -1);
+              content: "";
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+              border-bottom-color: var(--color-background-900);
+              z-index: 2;
+            }
+            &::after {
+              position: absolute;
+              bottom: calc(var(--spacing) * -0.5);
+              left: calc(0.45rem * -1);
+              rotate: calc(135deg * -1);
+              content: "";
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 9px solid;
+              border-bottom-color: color-mix(in srgb, hsl(283, 68%, 50%) 90%, transparent);
+              @supports (color: color-mix(in lab, red, red)) {
+                border-bottom-color: color-mix(in oklab, var(--color-primary-500) 90%, transparent);
+              }
+              z-index: 1;
+            }
+          }
+          & > div:nth-child(2) {
+            position: absolute;
+            top: calc(var(--spacing) * 0);
+            right: calc(var(--spacing) * 0);
+            display: flex;
+            height: 100%;
+            width: 100%;
+            &::before {
+              position: absolute;
+              top: calc(var(--spacing) * -1);
+              right: calc(var(--spacing) * -2);
+              rotate: 45deg;
+              content: "";
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 10px solid;
+              border-bottom-color: var(--color-background-900);
+              z-index: 2;
+            }
+            &::after {
+              position: absolute;
+              top: calc(var(--spacing) * -0.5);
+              right: calc(0.45rem * -1);
+              rotate: 45deg;
+              content: "";
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 9px solid;
+              border-bottom-color: color-mix(in srgb, hsl(283, 68%, 50%) 90%, transparent);
+              @supports (color: color-mix(in lab, red, red)) {
+                border-bottom-color: color-mix(in oklab, var(--color-primary-500) 90%, transparent);
+              }
+              z-index: 1;
+            }
+          }
+        }
+      }
+      a {
+        color: var(--color-white);
       }
     }
   }
   .logo {
-    display: flex;
-    justify-content: start;
-    align-items: start;
     position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     overflow: visible;
     width: 100%;
     .avatar {
       position: relative;
-      height: 50px;
+      height: calc(var(--spacing) * 12);
       width: auto;
       object-fit: cover;
-      z-index: 1;
       border-radius: calc(infinity * 1px);
       border-style: var(--tw-border-style);
-      border-width: 2px;
+      border-width: 3px;
       --tw-border-style: solid;
       border-style: solid;
-      border-color: var(--color-primary-500);
+      border-color: color-mix(in srgb, hsl(283, 68%, 50%) 90%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        border-color: color-mix(in oklab, var(--color-primary-500) 90%, transparent);
+      }
+      z-index: 2;
     }
     .decoration {
       position: absolute;
-      top: -5px;
-      left: -8px;
-      z-index: 2;
-      height: 60px;
-      z-index: 2;
+      top: calc(var(--spacing) * -1.5);
+      left: calc(var(--spacing) * -2);
+      height: calc(var(--spacing) * 14);
+      z-index: 3;
+    }
+    .background-decoration {
+      position: absolute;
+      top: calc(var(--spacing) * -2.5);
+      left: calc(var(--spacing) * -3);
+      height: calc(var(--spacing) * 18);
+      width: calc(var(--spacing) * 18);
+      border-radius: calc(infinity * 1px);
+      z-index: 1;
+      filter {
+        position: absolute;
+        height: calc(var(--spacing) * 18);
+        width: calc(var(--spacing) * 18);
+        box-shadow: 0 0 15px 8px var(--color-background-900) inset;
+        z-index: 2;
+      }
+      img {
+        z-index: 1;
+      }
     }
     span {
       display: flex;
@@ -260,11 +397,45 @@ nav#main-nav {
   }
   .search-bar input {
     &::placeholder {
-      color: white;
+      color: var(--color-white);
     }
     &[value=""] {
-      color: white;
+      color: var(--color-white);
     }
+  }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  padding: calc(var(--spacing) * 1);
+  padding-left: calc(var(--spacing) * 64);
+  main-content {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: color-mix(in srgb, hsl(283, 68%, 50%) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-primary-500) 90%, transparent);
+    }
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow-color: color-mix(in srgb, hsl(283, 68%, 60%) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-primary-400) 50%, transparent) var(--tw-shadow-alpha), transparent);
+    }
+    --tw-shadow: 10px 0px 50px 5px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
   }
 }
 @property --tw-shadow {

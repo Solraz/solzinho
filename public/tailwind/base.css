@@ -71,109 +71,216 @@ body {
   @apply bg-background-900;
 }
 
+site-container {
+  @apply flex justify-start items-start flex-col;
+  @apply max-w-[1280px] w-auto;
+  @apply relative;
+  @apply mx-auto;
+}
+
 nav#main-nav {
-  display: flex;
-  justify-content: start;
-  align-items: start;
-
-  width: 240px;
-  height: 100%;
-
-  position: fixed;
-  z-index: var(--top-index);
-
+  @apply flex justify-start items-start;
+  @apply w-60 h-full;
+  @apply fixed;
   @apply pl-1 pt-1 pb-1;
 
+  z-index: var(--top-index);
+
   .menu-content {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-flow: column;
-    flex-grow: 1;
+    @apply flex justify-start items-start flex-col grow;
+    @apply gap-10;
+    @apply h-full;
+    @apply shadow-2xl shadow-primary-400/50;
+    @apply border-primary-500/90 border border-solid rounded-lg;
+    @apply py-4 px-5;
 
-    gap: var(--text-base);
-
-    height: 100%;
-    max-width: 959px;
-
-    @apply shadow-xl shadow-primary-700/50;
-    @apply border-primary-500/90 border border-solid;
-    @apply py-3 px-3.5;
-    @apply rounded-lg;
+    --tw-shadow: -10px 0px 50px 5px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    max-width: 360px;
 
     ul {
-      display: flex;
-      flex-flow: column;
-      flex-grow: 1;
+      @apply flex flex-col grow;
+      @apply gap-3.5;
+      @apply w-full;
 
-      gap: 15px;
-
-      a {
-        color: white;
-        text-decoration: none;
-
-        transition: background-color 0.3s ease;
+      li {
+        @apply relative;
+        @apply border border-solid border-primary-500/90;
+        @apply w-full;
+        @apply pl-3 pt-1.5 pb-2.5;
 
         &:hover {
-          @apply bg-primary-300;
+          @apply cursor-pointer;
+          @apply shadow-primary-600/50;
+          box-shadow: 0 0 15px 0px var(--tw-shadow-color) inset;
         }
+
+        fancy-borders {
+          @apply absolute top-0 left-0;
+          @apply flex w-full h-full;
+
+          & > div:nth-child(1) {
+            @apply absolute top-0 left-0;
+            @apply flex w-full h-full;
+
+            &::before {
+              @apply absolute -bottom-1 -left-2;
+              @apply -rotate-[135deg];
+              content: "";
+
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+
+              border-bottom: 10px solid transparent;
+              @apply border-b-background-900;
+
+              z-index: 2;
+            }
+
+            &::after {
+              @apply absolute -bottom-0.5 -left-[0.45rem];
+              @apply -rotate-[135deg];
+              content: "";
+
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+
+              border-bottom: 9px solid;
+              @apply border-b-primary-500/90;
+
+              z-index: 1;
+            }
+          }
+
+          & > div:nth-child(2) {
+            @apply absolute top-0 right-0;
+            @apply flex w-full h-full;
+
+            &::before {
+              @apply absolute -top-1 -right-2;
+              @apply rotate-[45deg];
+              content: "";
+
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+
+              border-bottom: 10px solid;
+              @apply border-b-background-900;
+
+              z-index: 2;
+            }
+
+            &::after {
+              @apply absolute -top-0.5 -right-[0.45rem];
+              @apply rotate-[45deg];
+              content: "";
+
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+
+              border-bottom: 9px solid;
+              @apply border-b-primary-500/90;
+
+              z-index: 1;
+            }
+          }
+        }
+      }
+
+      a {
+        @apply text-white;
       }
     }
   }
 
   .logo {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-
-    position: relative;
-    overflow: visible;
-
-    width: 100%;
+    @apply relative;
+    @apply flex justify-start items-start;
+    @apply overflow-visible;
+    @apply w-full;
 
     .avatar {
-      position: relative;
+      @apply relative;
 
-      height: 50px;
-      width: auto;
-      object-fit: cover;
+      @apply h-12;
+      @apply w-auto;
+      @apply object-cover;
+      @apply border-3 border-solid border-primary-500/90 rounded-full;
 
-      z-index: 1;
-
-      @apply border-2 border-solid border-primary-500 rounded-full;
+      z-index: 2;
     }
 
     .decoration {
-      position: absolute;
-      top: -5px;
-      left: -8px;
+      @apply absolute;
+      @apply -top-1.5 -left-2;
+      @apply h-14;
 
-      z-index: 2;
-      height: 60px;
+      z-index: 3;
+    }
 
-      z-index: 2;
+    .background-decoration {
+      @apply absolute;
+      @apply -top-2.5 -left-3;
+      @apply h-18 w-18;
+      @apply rounded-full;
+
+      z-index: 1;
+
+      filter {
+        @apply absolute;
+        @apply h-18 w-18;
+
+        box-shadow: 0 0 15px 8px var(--color-background-900) inset;
+
+        z-index: 2;
+      }
+
+      img {
+        z-index: 1;
+      }
     }
 
     span {
-      display: flex;
-
-      overflow: hidden;
+      @apply flex;
+      @apply overflow-hidden;
 
       img {
-        height: 100%;
-        width: auto;
-        object-fit: cover;
+        @apply h-full;
+        @apply w-auto;
+        @apply object-cover;
       }
     }
   }
 
   .search-bar input {
     &::placeholder {
-      color: white;
+      @apply text-white;
     }
 
     &[value=""] {
-      color: white;
+      @apply text-white;
     }
+  }
+}
+
+main {
+  @apply flex justify-center items-center flex-col;
+  @apply h-full w-full min-h-screen;
+  @apply p-1 pl-64;
+
+  main-content {
+    @apply flex justify-center items-center grow;
+    @apply border border-primary-500/90 shadow-primary-400/50 shadow-2xl rounded-lg;
+
+    --tw-shadow: 10px 0px 50px 5px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+
+    @apply h-full w-full min-h-full;
   }
 }

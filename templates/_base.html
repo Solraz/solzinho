@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="{{ get_url(path='assets/img/solzinho.jpg')
-    }}"" type="image/jpg" />
+    <link rel="shortcut icon" href="{{
+    get_url(path='assets/img/solzinho-zoom.jpg') }}"" type="image/jpg" />
 
     <title>{{ config.title }}</title>
 
@@ -25,16 +25,21 @@
     />
   </head>
   <body>
-    {% block navigation %}
-    <!-- -->
-    {% include "components/nav.html" -%}
-    <!-- -->
-    {% endblock navigation %}
-    <!-- -->
-    <main>{% block content %} {% endblock content %}</main>
-    <!-- -->
-    {% block footer %} {% endblock footer %}
-
+    <site-container>
+      {% block navigation %}
+      <!-- -->
+      {% include "components/nav.html" -%}
+      <!-- -->
+      {% endblock navigation %}
+      <!-- -->
+      <main>
+        <main-content>
+          {% block content %} {% endblock content %}
+        </main-content>
+      </main>
+      <!-- -->
+      {% block footer %} {% endblock footer %}
+    </site-container>
     <script
       type="module"
       src="{{ get_url(path='scripts/scripts.js') }}"
