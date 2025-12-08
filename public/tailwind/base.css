@@ -67,6 +67,76 @@
   --top-index: 5;
 }
 
+@layer base {
+  .theme-winter-wolf {
+  }
+
+  .theme-indigo {
+    --color-text-50: hsl(0, 0%, 95%);
+    --color-text-100: hsl(0, 0%, 90%);
+    --color-text-200: hsl(0, 0%, 80%);
+    --color-text-300: hsl(0, 0%, 70%);
+    --color-text-400: hsl(0, 0%, 60%);
+    --color-text-500: hsl(0, 0%, 50%);
+    --color-text-600: hsl(0, 0%, 40%);
+    --color-text-700: hsl(0, 0%, 30%);
+    --color-text-800: hsl(0, 0%, 20%);
+    --color-text-900: hsl(0, 0%, 10%);
+    --color-text-950: hsl(0, 0%, 5%);
+
+    --color-background-50: hsl(0, 0%, 95%);
+    --color-background-100: hsl(0, 0%, 90%);
+    --color-background-200: hsl(0, 0%, 80%);
+    --color-background-300: hsl(0, 0%, 70%);
+    --color-background-400: hsl(0, 0%, 60%);
+    --color-background-500: hsl(0, 0%, 50%);
+    --color-background-600: hsl(0, 0%, 40%);
+    --color-background-700: hsl(0, 0%, 30%);
+    --color-background-800: hsl(0, 0%, 20%);
+    --color-background-900: hsl(0, 0%, 10%);
+    --color-background-950: hsl(0, 0%, 7.5%);
+
+    --color-primary-50: hsl(282, 68%, 95%);
+    --color-primary-100: hsl(283, 69%, 90%);
+    --color-primary-200: hsl(283, 69%, 80%);
+    --color-primary-300: hsl(283, 69%, 70%);
+    --color-primary-400: hsl(283, 68%, 60%);
+    --color-primary-500: hsl(283, 68%, 50%);
+    --color-primary-600: hsl(283, 68%, 40%);
+    --color-primary-700: hsl(283, 69%, 30%);
+    --color-primary-800: hsl(283, 69%, 20%);
+    --color-primary-900: hsl(283, 69%, 10%);
+    --color-primary-950: hsl(286, 68%, 5%);
+
+    --color-secondary-50: hsl(318, 77%, 95%);
+    --color-secondary-100: hsl(318, 76%, 90%);
+    --color-secondary-200: hsl(319, 78%, 80%);
+    --color-secondary-300: hsl(319, 78%, 70%);
+    --color-secondary-400: hsl(319, 78%, 60%);
+    --color-secondary-500: hsl(319, 78%, 50%);
+    --color-secondary-600: hsl(319, 78%, 40%);
+    --color-secondary-700: hsl(319, 78%, 30%);
+    --color-secondary-800: hsl(319, 78%, 20%);
+    --color-secondary-900: hsl(318, 76%, 10%);
+    --color-secondary-950: hsl(321, 77%, 5%);
+
+    --color-accent-50: hsl(327, 85%, 95%);
+    --color-accent-100: hsl(328, 88%, 90%);
+    --color-accent-200: hsl(328, 86%, 80%);
+    --color-accent-300: hsl(328, 87%, 70%);
+    --color-accent-400: hsl(328, 87%, 60%);
+    --color-accent-500: hsl(328, 87%, 50%);
+    --color-accent-600: hsl(328, 87%, 40%);
+    --color-accent-700: hsl(328, 87%, 30%);
+    --color-accent-800: hsl(328, 86%, 20%);
+    --color-accent-900: hsl(328, 88%, 10%);
+    --color-accent-950: hsl(330, 85%, 5%);
+  }
+
+  .theme-catpuccin {
+  }
+}
+
 body {
   @apply bg-background-900;
 }
@@ -123,6 +193,13 @@ nav#main-nav {
     @apply overflow-visible;
     @apply w-full;
 
+    a {
+      @apply relative;
+      @apply flex justify-start items-start;
+      @apply overflow-visible;
+      @apply w-full;
+    }
+
     .avatar {
       @apply relative;
 
@@ -144,7 +221,7 @@ nav#main-nav {
 
     .background-decoration {
       @apply absolute;
-      @apply -top-2.5 -left-3;
+      @apply -top-3 -left-3.5;
       @apply h-18 w-18;
       @apply rounded-full;
 
@@ -154,7 +231,7 @@ nav#main-nav {
         @apply absolute;
         @apply h-18 w-18;
 
-        box-shadow: 0 0 15px 8px var(--color-background-900) inset;
+        box-shadow: 0 0 12px 9px var(--color-background-950) inset;
 
         z-index: 2;
       }
@@ -213,7 +290,17 @@ nav#main-nav {
 
     > .super-giga-folder {
       @apply flex-row;
-      @apply mt-2;
+      @apply mt-0;
+
+      &:nth-child(2) {
+        @apply mt-2;
+      }
+
+      &:nth-child(n + 3) {
+        > div {
+          @apply border-t-0;
+        }
+      }
 
       > div:not(.super-giga-folder) {
         @apply border-primary-400/90;
@@ -228,12 +315,19 @@ nav#main-nav {
       }
 
       &::before {
-        content: "";
+        content: "—";
 
-        @apply border-l-primary-400/30 border-b-primary-400/30 border-t-0 border-r-0 border-2 border-solid;
-        @apply flex;
-        @apply w-3 h-[50%];
-        @apply ml-3 mr-1.5;
+        @apply border-l-primary-400/30 border-b-primary-400/30 border-t-0 border-r-0 border-b-0 border-1 border-solid;
+        @apply text-primary-400/30;
+        @apply flex justify-center items-center;
+        @apply w-5 h-full;
+        @apply ml-3;
+      }
+
+      &:nth-last-child(1) {
+        &::before {
+          @apply border-b-4;
+        }
       }
     }
   }
