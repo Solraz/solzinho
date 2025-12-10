@@ -1,8 +1,18 @@
 <nav id="main-nav">
-  <the-fog></the-fog>
   <div class="menu-content">
+    <the-fog>
+      <layer></layer>
+      <layer></layer>
+      <layer></layer>
+    </the-fog>
     <div class="logo">
-      <a href="#home">
+      <a
+        href="/"
+        hx-get="/"
+        hx-select="#content"
+        hx-swap="innerHTML"
+        hx-target="#content"
+      >
         <span class="avatar">
           <img
             class=""
@@ -34,7 +44,46 @@
             <div></div>
             <div></div>
           </fancy-borders>
-          <a href="#about">Sol's Rest</a>
+          <a
+            href="/"
+            hx-get="/"
+            hx-select="#content"
+            hx-swap="innerHTML"
+            hx-target="#content"
+            >Sol's Rest</a
+          >
+        </div>
+      </li>
+      <li class="super-giga-folder">
+        <div>
+          <fancy-borders>
+            <div></div>
+            <div></div>
+          </fancy-borders>
+          <a
+            href="/albedo"
+            hx-get="/albedo"
+            hx-select="#content"
+            hx-swap="innerHTML"
+            hx-target="#content"
+            >Albedo</a
+          >
+        </div>
+      </li>
+      <li class="super-giga-folder">
+        <div>
+          <fancy-borders>
+            <div></div>
+            <div></div>
+          </fancy-borders>
+          <a
+            href="/citrinitas"
+            hx-get="/citrinitas"
+            hx-select="#content"
+            hx-swap="innerHTML"
+            hx-target="#content"
+            >Citrinitas</a
+          >
         </div>
 
         <div class="super-giga-folder">
@@ -43,17 +92,31 @@
               <div></div>
               <div></div>
             </fancy-borders>
-            <a href="#about">The gods</a>
+            <a
+              href="/citrinitas/sun-gallery"
+              hx-get="/citrinitas/sun-gallery"
+              hx-select="#content"
+              hx-swap="innerHTML"
+              hx-target="#content"
+              >Sun's Gallery</a
+            >
           </div>
         </div>
-        <div class="super-giga-folder">
-          <div>
-            <fancy-borders>
-              <div></div>
-              <div></div>
-            </fancy-borders>
-            <a href="#about">Abandoned me</a>
-          </div>
+      </li>
+      <li class="super-giga-folder">
+        <div>
+          <fancy-borders>
+            <div></div>
+            <div></div>
+          </fancy-borders>
+          <a
+            href="/nigredo"
+            hx-get="/nigredo"
+            hx-select="#content"
+            hx-swap="innerHTML"
+            hx-target="#content"
+            >Nigredo</a
+          >
         </div>
       </li>
       <li class="super-giga-folder">
@@ -62,25 +125,14 @@
             <div></div>
             <div></div>
           </fancy-borders>
-          <a href="#services">Library</a>
-        </div>
-      </li>
-      <li class="super-giga-folder">
-        <div>
-          <fancy-borders>
-            <div></div>
-            <div></div>
-          </fancy-borders>
-          <a href="#contact">Thoughts</a>
-        </div>
-      </li>
-      <li class="super-giga-folder">
-        <div>
-          <fancy-borders>
-            <div></div>
-            <div></div>
-          </fancy-borders>
-          <a href="#contact">Collections</a>
+          <a
+            href="/rubedo"
+            hx-get="/rubedo"
+            hx-select="#content"
+            hx-swap="innerHTML"
+            hx-target="#content"
+            >Rubedo</a
+          >
         </div>
       </li>
     </ul>

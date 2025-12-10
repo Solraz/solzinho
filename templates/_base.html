@@ -7,9 +7,17 @@
     <link rel="shortcut icon" href="{{
     get_url(path='assets/img/solzinho-zoom.jpg') }}"" type="image/jpg" />
 
+    <!-- -->
+    {% if section.title %}
     <title>{{ section.title }}</title>
-
     <meta name="description" content="{{ section.description }}" />
+    {% endif %}
+
+    <!-- -->
+    {% if page.title %}
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}" />
+    {% endif %}
 
     <link
       type="text/css"
@@ -24,7 +32,7 @@
       media="(prefers-color-scheme: dark)"
     />
   </head>
-  <body hx-boost>
+  <body hx-boost hx-preserve>
     <site-container>
       {% block navigation %}
       <!-- -->
@@ -34,8 +42,12 @@
       <!-- -->
       <main>
         <main-content>
-          <the-fog></the-fog>
-          {% block content %} {% endblock content %}
+          <the-fog>
+            <layer></layer>
+            <layer></layer>
+            <layer></layer>
+          </the-fog>
+          {% block page %} {% endblock page %}
         </main-content>
       </main>
       <!-- -->
@@ -44,6 +56,10 @@
     <script
       type="module"
       src="{{ get_url(path='scripts/htmx.min.js') }}"
+    ></script>
+    <script
+      type="module"
+      src="{{ get_url(path='scripts/idiomorph-ext.min.js') }}"
     ></script>
     <script
       type="module"

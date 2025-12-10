@@ -1,0 +1,30 @@
+<ul id="breadcrumbers_xd">
+  <li>
+    <a href="/">solzinho's rest</a>
+  </li>
+  <!-- -->
+  {% if section %}
+  <!-- -->
+  {% set self = section %}
+  <!-- -->
+  {% endif %}
+
+  <!-- -->
+  {% if page %}
+  <!-- -->
+  {% set self = page %}
+  <!-- -->
+  {% endif %}
+
+  <!-- -->
+  {% if self.extra.links %}
+  <!-- -->
+
+  {% for link in self.extra.links %}
+  <li>
+    <a href="{{ link.link }}">{{ link.name }}</a>
+  </li>
+  {% endfor %}
+  <!-- -->
+  {% endif %}
+</ul>
